@@ -12,9 +12,8 @@ let outputFile = "";
 
 let outputFileName = prompt('Name the file where you want to output your data: ');
 
-let fileExtention = /$\.json/;
-
-if(fileExtention.test(outputFileName) === true){
+console.log(path.extname(outputFileName));
+if(path.extname(outputFileName) === '.json'){
     console.log(`Your data will be output throught the file ${outputFileName}`);
 } else {
     outputFileName = `${outputFileName}.json`;
