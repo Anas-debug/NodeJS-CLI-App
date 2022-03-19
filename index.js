@@ -10,11 +10,11 @@ const api_url = "";
 //const response = await fetch(api_url);
 let outputFile = "";
 
-const outputFileName = prompt('Name the file where you want to output your data: ');
+let outputFileName = prompt('Name the file where you want to output your data: ');
 
 let fileExtention = /$\.json/;
 
-if(outputFileName.test(fileExtention) == true){
+if(fileExtention.test(outputFileName) == true){
     console.log(`Your data will be output throught the file ${outputFileName}`);
 } else {
     outputFileName = `${outputFileName}.json`;
