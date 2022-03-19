@@ -13,7 +13,7 @@ const input = readline.createInterface({
   });
   
   readline.question('Output File Name?', oFileName => {
-    console.log(`Hey there ${oFileName}!`);
+    console.log(`Output file name is: ${oFileName}!`);
     readline.close();
   });
 
