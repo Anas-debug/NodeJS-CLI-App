@@ -16,8 +16,8 @@ console.log(path.extname(outputFileName));
 if(path.extname(outputFileName) === '.json'){
     console.log(`Your data will be output throught the file ${outputFileName}`);
 } else {
-    outputFileName = `${outputFileName}.json`;
     console.log(`Your data will be output throught the file ${outputFileName}.json`);
+    outputFileName = `${outputFileName}.json`;
 }
 
 
