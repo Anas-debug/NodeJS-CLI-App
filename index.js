@@ -1,10 +1,22 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
-const app = express()
+const readline = require('readline');
+const app = express();
 const api_url = "";
 //const response = await fetch(api_url);
+let outputFile = "";
+
+const input = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  readline.question('Output File Name?', oFileName => {
+    console.log(`Hey there ${oFileName}!`);
+    readline.close();
+  });
+
 
 fs.mkdir(path.join(__dirname, '/output'), {recursive : true}, err => {
     if(err) {
@@ -15,7 +27,7 @@ fs.mkdir(path.join(__dirname, '/output'), {recursive : true}, err => {
     }
 });
 
-fs.writeFile(path.join(__dirname, '/output', 'o.json'), `${data}`, err => {
+fs.writeFile(path.join(__dirname, '/output', 'o.json'), '${data}', err => {
     if(err) {
         throw err;
     }
