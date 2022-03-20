@@ -41,7 +41,6 @@ console.log(trimmedIds);
 // Making the request  
 var request = http.request({
   host: 'https://api.shotcut.com/api/v3/projects',
-  path: '/endpoint',
   port: 443,
   method: 'GET',
   headers: {
