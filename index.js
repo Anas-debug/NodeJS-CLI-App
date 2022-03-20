@@ -36,26 +36,34 @@ for (let i = 0; i < projectIdsArr.length ; i++){
 }
 
 console.log(trimmedIds);
-  
-// // We get our data in chucnks in order to avoid buffering problems that happen usaly in the CLI
-//   https.get('', (resp) => {
 
-//   let data = ''; // we initialize a 'data' variable
 
-//   // A chunk of data has been received, and we add it to the previous one
-//   resp.on('data', (chunk) => {
-//     data += chunk;
-//   });
+// Making the request  
+var request = http.request({
+  host: 'https://api.shotcut.com/api/v3/projects',
+  path: '/endpoint',
+  port: 443,
+  method: 'GET',
+  headers: {
+    'Shortcut-Token': `${SHORTCUT_API_TOKEN}`,
+    'Content-Type': 'application/json',
+    'Location': 'https://api.shotcut.com/api/v3/projects',
+    'Content-Length': getBody.length
+  }
+}, function(response) {
+  var reply = '';
+  response.on('data', function(chunk) {
+    reply += chunk;
+  });
 
-//   // The whole response has been received. Print out the result.
-//   resp.on('end', () => {
-//     console.log(JSON.parse(data).explanation);
-//   });
+  response.on('end', function() {
+    return cb(reply);
+  });
+});
 
-// }).on("error", (err) => {
-//   console.log("Error: " + err.message);
-// });
-// //End of getting data from the buffer
+request.write(getBody);
+request.end();
+//ends
 
 
 // Making the directory
