@@ -76,7 +76,7 @@ fs.mkdir(path.join(__dirname, '/output'), {recursive : true}, err => {
 });
 
  // Writing to file
-fs.writeFile(path.join(__dirname, '/output', 'o.json'), '${data}', err => {
+fs.writeFile(path.join(__dirname, '/output', 'outputFileName'), '${reply}', err => {
     if(err) {
         throw err;
     }
