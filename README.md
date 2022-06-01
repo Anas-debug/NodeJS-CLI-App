@@ -12,6 +12,6 @@ module.exports = {
 }
 </code>
 
-##App functionaly
+## App functionaly
 Right now it only gets the projects ids but it does not iterate throught them, 
 it only outputs the JSON project response as a whole.
